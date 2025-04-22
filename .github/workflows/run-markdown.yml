@@ -1,4 +1,4 @@
-name: Executar Comandos do Markdown
+name: Executar Markdown e Atualizar README
 
 on:
   push:
@@ -7,41 +7,64 @@ on:
   workflow_dispatch:   # Permite execução manual
 
 jobs:
-  run-commands:
+  process-markdown:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout do código
         uses: actions/checkout@v4
 
       - name: Extrair e Executar Comandos
-        id: run
+        id: execute
         run: |
-          # Instala dependências (Python para extrair Markdown)
+          # Instala Python e dependências
+          sudo apt-get update
           sudo apt-get install -y python3-pip
           pip install markdown-it-py
 
-          # Script Python para extrair blocos de código marcados
+          # Script para extrair e executar comandos
           python3 << 'EOF'
           from markdown_it import MarkdownIt
+          import subprocess
           import os
 
           md = MarkdownIt()
+          outputs = []
+
           with open("comandos.md") as f:
               tokens = md.parse(f.read())
-              
               for token in tokens:
                   if token.type == "fence" and "run" in token.info:
-                      print(f"Executando: {token.content}")
-                      exit_code = os.system(token.content)
-                      if exit_code != 0:
-                          raise Exception(f"Erro no comando: {token.content}")
+                      command = token.content
+                      outputs.append(f"$ {command}")
+                      try:
+                          result = subprocess.run(command, shell=True, check=True, 
+                                                capture_output=True, text=True)
+                          outputs.append(result.stdout)
+                      except subprocess.CalledProcessError as e:
+                          outputs.append(f"ERRO: {e.stderr}")
+
+          # Salva as saídas em um arquivo temporário
+          with open("outputs.txt", "w") as f:
+              f.write("\n".join(outputs))
           EOF
 
-      - name: Salvar Resultados (Opcional)
-        if: always()
+      - name: Atualizar README.md
         run: |
-          # Adiciona os logs da execução ao README.md
-          echo "## Última Execução" >> README.md
-          echo '```log' >> README.md
-          cat $GITHUB_STEP_SUMMARY >> README.md
-          echo '```' >> README.md
+          # Substitui a seção de saídas no README.md
+          SECTION_START="<!-- SAIDA-EXECUCAO -->"
+          SECTION_END="<!-- FIM-SAIDA-EXECUCAO -->"
+          NEW_CONTENT="$SECTION_START\n\`\`\`bash\n$(cat outputs.txt)\n\`\`\`\n$SECTION_END"
+
+          awk -v new="$NEW_CONTENT" \
+              -v start="$SECTION_START" \
+              -v end="$SECTION_END" \
+              'BEGIN {print_new=1} 
+              $0 ~ start {print $0; print_new=0; print new} 
+              $0 ~ end {print_new=1} 
+              print_new' README.md > tmp.md && mv tmp.md README.md
+
+      - name: Commit das Mudanças
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Atualiza README com saídas dos comandos"
+          file_pattern: README.md
