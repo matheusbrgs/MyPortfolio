@@ -1,0 +1,47 @@
+name: Executar Comandos do Markdown
+
+on:
+  push:
+    paths:
+      - 'comandos.md'  # Só executa quando este arquivo mudar
+  workflow_dispatch:   # Permite execução manual
+
+jobs:
+  run-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extrair e Executar Comandos
+        id: run
+        run: |
+          # Instala dependências (Python para extrair Markdown)
+          sudo apt-get install -y python3-pip
+          pip install markdown-it-py
+
+          # Script Python para extrair blocos de código marcados
+          python3 << 'EOF'
+          from markdown_it import MarkdownIt
+          import os
+
+          md = MarkdownIt()
+          with open("comandos.md") as f:
+              tokens = md.parse(f.read())
+              
+              for token in tokens:
+                  if token.type == "fence" and "run" in token.info:
+                      print(f"Executando: {token.content}")
+                      exit_code = os.system(token.content)
+                      if exit_code != 0:
+                          raise Exception(f"Erro no comando: {token.content}")
+          EOF
+
+      - name: Salvar Resultados (Opcional)
+        if: always()
+        run: |
+          # Adiciona os logs da execução ao README.md
+          echo "## Última Execução" >> README.md
+          echo '```log' >> README.md
+          cat $GITHUB_STEP_SUMMARY >> README.md
+          echo '```' >> README.md
