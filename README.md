@@ -39,11 +39,14 @@ from sklearn.model_selection import RandomizedSearchCV, train_test_split, cross_
 from scipy.stats import randint
 ```
 <!-- SAIDA-EXECUCAO -->
-<!-- SAIDA-EXECUCAO -->
-```bash
 
 ```
-<!-- FIM-SAIDA-EXECUCAO -->
+gen_sub = pd.read_csv('gender_submission.csv')
+data_train = pd.read_csv('train.csv')
+data_test = pd.read_csv('test.csv')
+data_train
+```
+
 <!-- FIM-SAIDA-EXECUCAO -->
 </details>
 </details>
