@@ -50,6 +50,14 @@ data_train = pd.read_csv('train.csv')
 data_test = pd.read_csv('test.csv')
 data_train
 ```
+
+```
+data_train = data_train.drop(['Name', 'Ticket', 'Cabin'], axis = 1)
+data_test = data_test.drop(['Name', 'Ticket', 'Cabin'], axis = 1)
+print('data_train\n', data_train)
+print('data_test\n',data_test)
+```
+
 <!-- FIM-SAIDA-EXECUCAO -->
 </details>
 </details>
