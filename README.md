@@ -1,13 +1,8 @@
-# Cientista de dados júnior / Estatístico júnior
-## Formação
-Bacharelado em Estatística - UFBA (2017-2021)
-## Tecnologias
-Python e R
-## Projetos
+# Projetos
 <details>
 <summary> Python </summary>
   
-### Titanic
+## Titanic
 Este banco de dados faz parte de uma [competição no Kaggle](https://www.kaggle.com/competitions/titanic). Este banco de dados é referente ao acidente do Titanic, cada linha representa um passageiro e contém algumas informações sobre ele. O banco de dados contém 1309 linhas e 11 colunas:
 - PassengerId: índice de cada observação;
 - Survived: valor que indica se a pessoa sobreviveu ao acidente ou não (0 = não sobreviveu, 1 = sobreviveu);
