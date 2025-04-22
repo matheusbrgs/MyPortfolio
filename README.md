@@ -38,7 +38,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, r
 from sklearn.model_selection import RandomizedSearchCV, train_test_split, cross_val_score, StratifiedKFold, cross_val_predict
 from scipy.stats import randint
 ```
-<!-- SAIDA-EXECUCAO -->
 
 ```
 gen_sub = pd.read_csv('gender_submission.csv')
@@ -46,6 +45,13 @@ data_train = pd.read_csv('train.csv')
 data_test = pd.read_csv('test.csv')
 data_train
 ```
+
+<!-- SAIDA-EXECUCAO -->
+
+```bash
+Aqui aparecerão os resultados dos comandos automaticamente.
+```
 <!-- FIM-SAIDA-EXECUCAO -->
+
 </details>
 </details>
