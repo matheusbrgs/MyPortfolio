@@ -19,6 +19,6 @@ O objetivo é criar um modelo preditivo para prever se uma pessoa vai ou não mo
 <details> 
   <summary> Python </summary> 
   
-  [Machine Learning](projects/titanic%20LR%20Python.pdf)
-  
+  [Machine Learning](projects/titanic%20MR%20Python.pdf)
+  [Regressão Logística](projects/titanic%20LR%20Python.pdf)
 </details>
