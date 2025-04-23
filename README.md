@@ -18,4 +18,7 @@ O objetivo é criar um modelo preditivo para prever se uma pessoa vai ou não mo
 
 <details> 
   <summary> Python </summary> 
+  
+  [Machine Learning](projects/titanic%20LR%20Python.pdf)
+  
 </details>
