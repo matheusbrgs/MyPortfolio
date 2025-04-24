@@ -18,10 +18,10 @@ O objetivo é criar um modelo preditivo para prever se uma pessoa vai ou não mo
 
 Python
 
-[Random Forest](projects/titanic%20ML%20Python.pdf)\
+[Random Forest](projects/titanic%20RF%20Python.pdf)\
 [Regressão Logística](projects/titanic%20LR%20Python.pdf)
 
 
 R 
 
-[Random Forest](projects/titanic%20ML%20R.pdf)
+[Random Forest](projects/titanic%20RF%20R.pdf)
