@@ -23,4 +23,4 @@ Python
 
 R 
 
-[Machine Learning](projects/titanic%20ML%R.pdf)
+[Machine Learning](projects/titanic%20ML%20R.pdf)
