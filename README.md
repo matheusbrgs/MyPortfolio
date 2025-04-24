@@ -24,4 +24,5 @@ Python
 
 R 
 
-[Random Forest](projects/titanic%20RF%20R.pdf)
+[Random Forest](projects/titanic%20RF%20R.pdf)\
+[Regressão Logística](projects/titanic%20LR%20R.pdf)
