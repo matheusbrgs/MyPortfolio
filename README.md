@@ -16,13 +16,11 @@ Este banco de dados faz parte de uma [competição no Kaggle](https://www.kaggle
 
 O objetivo é criar um modelo preditivo para prever se uma pessoa vai ou não morrer baseado nas variáveis fornecidas.
 
-<details> 
-  <summary> Python </summary> 
-  
-  [Machine Learning](projects/titanic%20ML%20Python.pdf)\
-  [Regressão Logística](projects/titanic%20LR%20Python.pdf)
+Python
+[Machine Learning](projects/titanic%20ML%20Python.pdf)\
+[Regressão Logística](projects/titanic%20LR%20Python.pdf)
 
-  <summary> R </summary>
 
-  
-</details>
+R 
+
+[Machine Learning](projects/titanic%20ML%R.pdf)
