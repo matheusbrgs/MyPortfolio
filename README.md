@@ -35,7 +35,7 @@ Este banco de dados foi retirado do [Kaggle](https://www.kaggle.com/datasets/pod
 - Average_cost: custo médio mensal;
 - The_average_annual_payroll_of_the_region: média da folha de pagamento em cada mês.
 
-O objetivo é criar um modelo preditivo da receita para os próximos anos.
+O objetivo é criar um modelo preditivo da receita para os próximos meses.
 
 [Python](projects/TS%20Python.pdf)
 
