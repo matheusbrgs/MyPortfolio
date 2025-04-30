@@ -38,3 +38,5 @@ Este banco de dados foi retirado do [Kaggle](https://www.kaggle.com/datasets/pod
 O objetivo é criar um modelo preditivo da receita para os próximos anos.
 
 [Python](projects/TS%20Python.pdf)
+
+[R](projects/TS%20R.pdf)
