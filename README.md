@@ -6,7 +6,7 @@ Este banco de dados faz parte de uma [competição no Kaggle](https://www.kaggle
 - Pclass: valor que indica a qual classe o ticket pertence (1 = 1ª classe, 2 = 2ª classe, 3 = 3ª classe);
 - Sex: valor que indica qual o gênero da pessoa (male = masculino, female = feminino);
 - Age: valor que indica a idade da pessoa;
-- SibSp: número de filhos e cônjuges à bordo;
+- SibSp: número de irmãos e cônjuges à bordo;
 - Parch: número de pais e filhos à bordo;
 - Ticket: número do ticket;
 - Fare: quantia da tarifa paga pela pessoa;
